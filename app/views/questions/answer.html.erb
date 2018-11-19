@@ -1,0 +1,29 @@
+<!-- <p>Questions#answer</p>
+<p>Find me in app/views/questions/answer.html.erb</p> -->
+
+<!-- Time to implement the logic in the answer action (second step of the user story).
+The answer.html.erb will display the question you ask your coach as well as his answer.
+The controller will need to read the question from params and compute an instance variable @answer for the view to display.
+Here are two requests that you should be able to handle: -->
+
+<!-- If the message is I am going to work, the coach will answer Great!
+If the message has a question mark ? at the end, the coach will answer Silly question, get dressed and go to work!.
+Otherwise he will answer I don't care, get dressed and go to work! -->
+<div id="question">
+  <p><%= @answer %></p>
+  <p><i>-You</i></p>
+</div>
+<div id="answer">
+  <b>
+  <% if @answer == "I am going to work" %>
+    <p> Great! </p>
+  <% elsif @answer.include?("?") %>
+    <p> Silly question, get dressed and go to work! </p>
+  <% else %>
+    <p> I don't care, get dressed an go to work!</p>
+  <% end %>
+  </b>
+  <p><i>-Your coach</i></p>
+</div>
+<%= link_to "Click here to go back", ask_path %>
+
